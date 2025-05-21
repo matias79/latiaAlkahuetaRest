@@ -1,0 +1,170 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}Menu{% endblock title %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static "/img/amburguesa.jpg" %}">
+    <link rel="stylesheet"  href="{% static "css/card.css" %}">
+    <link rel="stylesheet" href="{% static "library/font.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/navbar.css" %}">
+    <link rel="stylesheet" href="{% static "css/table.css" %}">
+    <link rel="stylesheet" href="{% static "css/footer.css" %}">
+    
+    <!--isitoask-->
+    <script src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/css/iziToast.min.css" rel="stylesheet">
+
+    <script src="{% static "js/messages.js" %}"></script>
+    <!--iconos boostrap-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=switch_access_3" />
+
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><img width="50px" src="{% static "/img/logo.jpg" %}" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Tia</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url "lista_menu" %}">Menu Principal</a>
+              </li>
+
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url "lista_bebidas" %}">Bebidas</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Almuerzos
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url "almuerzodia" %}">Ejecutivo</a></li>
+                  <li><a class="dropdown-item" href="{% url "lista_menu" %}">Especial</a></li>                     
+                </ul>
+              </li>
+
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url "contacto" %}">contacto</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url "ubicacion" %}">Ubicacion</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url "latia" %}">Quienes La Tia</a>
+              </li>
+
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Administrador
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url "nuevo_menu" %}">Crear Menu</a></li>
+                  <li><a class="dropdown-item" href="{% url "nueva_bebida" %}">Crear Bebidas</a></li>
+                  <li><a class="dropdown-item" href="{% url "lista_menus" %}">Tabla de Menus</a></li>
+                  <li><a class="dropdown-item" href="{% url "tabla_bebidas" %}">Tabla de Bebidas</a></li>
+                  <li><a class="dropdown-item" href="{% url "nuevo_almuerzo" %}">Crear Almuerzo</a></li>
+                  <li><a class="dropdown-item" href="{% url "tabla_almuerzo" %}">Tabla de Almuerzos</a></li>
+                  <li><a class="dropdown-item" href="#">otro</a></li>            
+                </ul>
+              </li>
+            </ul>
+
+           
+            <form class="d-flex" method="post" action="{% url "nuevo_almuerzo" %}"> {% comment "logout" %} % url "" %} en este action va logout-->{% endcomment %}
+              {% csrf_token %}
+              <button class="btn btn-outline-success" type="submit">Terminar Sesion</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+  <div class="container-fluid text-light-center">
+    {% block body %}
+    {% endblock body %}
+
+  </div>
+  {% for messages in messages %}
+  <script>
+    iziToast.success({
+      title: 'Proceso Correcto',
+        message: '{{messages}}',
+    });
+  </script>
+  {% endfor %}
+ <footer class="bg-dark text-white pt-4">
+      <div class="container">
+        <div class="row text-center text-md-start">
+          
+          <!-- Columna 1: Información del Restaurante -->
+          <div class="col-12 col-md-4 mb-4">
+            <h1>LA TIA ALKAHUETA</h1>
+            <h6>De gusta de nuestros deliciosos platos</h6>
+            <p><h6>CAMARA DE COMERCIO ESPINAL - TOLIMA</h6></p>
+            <p>
+              <strong> Dirección: Cra 3 #Calle 21<br></strong>
+              Teléfonos: 3173676288 - 3165109802<br>
+              Email: tiaAlkahueta@gmail.com
+            </p>
+          </div>
+          
+          <!-- Columna 2: Ubicación Google Maps -->
+          <div class="col-12 col-md-4 mb-4">
+            <h5>Ubicación</h5>
+            <p>Llega con seguridad guiado por google Maps</p>
+            <div class="row">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.3552748361726!2d-74.90152433180351!3d4.150353436980454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3ed3e655244c61%3A0xecb4e8b9012403e7!2sCamara%20De%20Comercio%20del%20Sur%20y%20Oriente%20del%20Tolima!5e0!3m2!1ses!2sco!4v1746995102868!5m2!1ses!2sco" width="600" height="80" frameborder="0" style="border:0" allowfullscreen>
+              </iframe>
+          </div>
+          
+          <!-- Columna 3: Redes Sociales -->
+          <div class="container mt-5">
+            <h5>Síguenos</h5>
+            <ul class="list-inline text-center">
+              <li class="list-inline-item mx-3">
+                <a href="https://www.youtube.com" class="text-white me-3" target="_blank">
+                  <i class="bi bi-youtube" style="font-size: 1.5rem;"></i>
+                </a>
+              </li>
+              <li class="list-inline-item mx-3">
+                <a href="https://www.facebook.com/people/Tia-Alkahueta/61569915031492/" class="text-white me-3" target="_blank">
+                  <i class="bi bi-facebook" style="font-size: 1.5rem;"></i>
+                </a>
+              </li>
+              <li class="list-inline-item mx-3">
+                <a href="https://wa.me/3173676288" class="text-white" target="_blank">
+                  <i class="bi bi-whatsapp" style="font-size: 1.5rem;"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="text-center py-3 border-top border-secondary mt-3">
+          &copy; 2025 TIALKAHUETA. Todos los derechos reservados.
+        </div>
+      </div>
+    </footer>
+   
+    <!-- Asegúrate de incluir Bootstrap 5 y Bootstrap Icons en tu HTML -->
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Crear Almuerzo{% endblock title %}
+
+{% block body %}
+<div class="container py-2">
+    <div class="row justify-content-center align-items-center">
+      
+      <!-- Columna 1: Formulario -->
+      <div class="col-12 col-md-6 mb-4">
+        <h3 class="mb-4 text-center text-bg-info">AGREGAR NUEVO ALMUERZO</h3>
+        <form action="", method="post" >
+            {% csrf_token %}
+          <div class="mb-3">
+            <label for="sopa" class="form-label">Sopa del Menu</label>
+            <input type="text" class="form-control" id="sopa" name="sopa" placeholder="Crema de pollo" required>
+          </div>
+          <div class="mb-3">
+            <label for="precio" class="form-label">Precio</label>
+            <input type="number" class="form-control" id="precio" name="precio" placeholder="25.500" required>
+          </div>
+          <div class="mb-3">
+            <label for="principio" class="form-label">Principio Menu</label>
+            <input type="text" class="form-control" id="principio" name="principio" placeholder="Papa francesa, arroz, ensalada" required>
+          </div>
+          <div class="mb-3">
+            <label for="carne" class="form-label">Carnes Menu</label>
+            <input type="text" class="form-control" id="carne" name="carne" placeholder="Papa francesa, arroz, ensalada" required>
+          </div>
+          <div class="mb-3">
+            <label for="bebida" class="form-label">Bebida Menu</label>
+            <input type="text" class="form-control" id="bebida" name="bebida" placeholder="Papa francesa, arroz, ensalada" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="imagensopa" class="form-label">Sopa Menu</label>
+            <input type="text" class="form-control" id="imagensopa" name="imagensopa" placeholder="link imagen internet " required>
+          </div>
+          <div class="mb-3">
+            <label for="imagenbandeja" class="form-label">Bandeja Menu</label>
+            <input type="text" class="form-control" id="imagenbandeja" name="imagenbandeja" placeholder="link imagen internet " required>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+      </div>
+      
+      <!-- Columna 2: Imagen -->
+      <div class="col-12 col-md-6 text-center">
+        <img src="{% static "/img/logo.jpg" %}" width="400px" class="img-fluid rounded shadow" alt="Restaurante">
+      </div>
+  
+    </div>
+  </div>
+  
+{% endblock body %}
+
+
+
+
+

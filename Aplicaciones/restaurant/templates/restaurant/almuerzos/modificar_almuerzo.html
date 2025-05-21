@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Modificar Almurzo{% endblock title %}
+
+{% block body %}
+<div class="container py-2">
+    <div class="row justify-content-center align-items-center">
+      
+      <!-- Columna 1: Formulario -->
+      <div class="col-12 col-md-6 mb-4">
+        <h3 class="mb-4 text-center text-bg-info">MODIFICAR ALMUERZO</h3>
+        <form action="", method="post" >
+            {% csrf_token %}
+            {% for almuerzo in almuerzo %}
+              <div class="mb-3">
+                <label for="sopa" class="form-label"><b>Sopa del Menu</b></label>
+                <input type="text" class="form-control" id="sopa" name="sopa" value="{{almuerzo.sopas}}" >
+              </div>
+
+            {% comment "pd" %}
+              <!--
+              <div class="mb-3">
+                <label for="precio" class="form-label">Precio</label>
+                <input type="number" class="form-control" id="precio" name="precio" value="{{almuerzo.principio}}" >
+              </div>
+              -->
+            {% endcomment %}
+
+              <div class="mb-3">
+                <label for="principio" class="form-label"><b>Principio Menu</b></label>
+                <input type="text" class="form-control" id="principio" name="principio" value="{{almuerzo.principio}}">
+              </div>
+
+              <div class="mb-3">
+                <label for="carne" class="form-label"><b>Proteina Menu</b></label>
+                <input type="text" class="form-control" id="carne" name="carne" value="{{almuerzo.carnes}}">
+              </div>
+              <div class="mb-3">
+                <label for="bebida" class="form-label"><b>Bebida Menu</b></label>
+                <input type="text" class="form-control" id="bebida" name="bebida" value="{{almuerzo.bebida}}">
+              </div>
+
+              <div class="mb-3">
+                <label for="imagensopa" class="form-label"><b>Imagen Sopa</b></label>
+                <input type="text" class="form-control" id="imagensopa" name="imagensopa" value="{{almuerzo.imagenSopa}}">
+              </div>
+              
+              <div class="mb-3">
+                <label for="imagenbandeja" class="form-label"><b>Imagen Bandeja</b></label>
+                <input type="text" class="form-control" id="imagenbandeja" name="imagenbandeja" value="{{almuerzo.imagenBandeja}}">
+              </div>
+              
+              <button type="submit" class="btn btn-primary">Enviar</button>
+            {% endfor %}
+        </form>
+      </div>
+      
+      <!-- Columna 2: Imagen -->
+      <div class="col-12 col-md-6 text-center">
+        <img src="{% static "/img/logo.jpg" %}" width="400px" class="img-fluid rounded shadow" alt="Restaurante">
+      </div>
+  
+    </div>
+  </div>
+  
+{% endblock body %}
+
+
+
+
+
