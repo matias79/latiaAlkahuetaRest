@@ -97,7 +97,7 @@
             </ul>
 
            
-            <form class="d-flex" method="post" action="{% url "nuevo_almuerzo" %}"> {% comment "logout" %} % url "" %} en este action va logout-->{% endcomment %}
+            <form class="d-flex" method="post" action="{% url "logout" %}"> {% comment "logout" %} % url "" %} en este action va logout-->{% endcomment %}
               {% csrf_token %}
               <button class="btn btn-outline-success" type="submit">Terminar Sesion</button>
             </form>

@@ -2,22 +2,26 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from Aplicaciones.restaurant.models import AlmuerzoEjecu
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 def almuerEjec(request):
     almuerzo = AlmuerzoEjecu.objects.all()
     return render(request,'restaurant/almuerzos/ejecutivo.html', {'almuerzo':almuerzo})
 
+@login_required(login_url='/login')
 def tabla_almuerzo(request):
     almuerzo = AlmuerzoEjecu.objects.all()
     context={'almuerzo':almuerzo}
     return render(request, 'restaurant/almuerzos/tablaalmuerzos.html', context)
 
+@login_required(login_url='/login')
 def eliminar_almuerzo(request, id):
     almuerzo = AlmuerzoEjecu.objects.get(pk=id)
     almuerzo.delete()
     messages.success(request, 'Almuerzo Eliminado correctamente')
     return redirect('/almuerzos')
 
+@login_required(login_url='/login')
 def crear_almuerzo(request):
     if request.method == 'POST':
         sopa=request.POST.get('sopa')
@@ -32,6 +36,7 @@ def crear_almuerzo(request):
     else:
         return render(request, 'restaurant/almuerzos/crear_almuerzo.html')
 
+@login_required(login_url='/login')
 def editar_almuerzo(request, id):
     if request.method == 'POST':
         if request.POST.get("sopa") and request.POST.get ("principio") and request.POST.get ("carne") and request.POST.get ("bebida") and request.POST.get ("imagensopa") and request.POST.get ("imagenbandeja"):
