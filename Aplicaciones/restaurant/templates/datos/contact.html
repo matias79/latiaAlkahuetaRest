@@ -3,6 +3,50 @@
 {% block title %}Contacto{% endblock title %}
 
 {% block body %}
-<img src="https://www.colombiahosting.com.co/blog/wp-content/uploads/2021/08/como-crear-pagina-en-construccion.png"  height="300px" class="d-block w-100" alt="Página en construcción">
-<a href="{% url "inicio" %}"><button type="button" class="btn btn-success">VOLVER A INICIO</button></a>
+<section class="ubicacion-section d-flex align-items-center" id="ubicacion">
+    <div class="ubicacion-overlay"></div>
+    <div class="container ubicacion-content">
+      <div class="row">
+        <!-- Información -->
+        <div class="col-lg-6 mb-4 text-white">
+          <h2 class="mb-3">¿Dónde estamos?</h2>
+          <p class="mb-4">Visítanos en nuestro acogedor restaurante ubicado en el corazón de la ciudad. Disfruta del sabor auténtico de casa con La Tía Alkahueta.</p>
+
+          <ul class="list-unstyled">
+            <li><i class="bi bi-geo-alt-fill me-2 text-warning"></i> Calle Falsa 123, Centro Histórico, Ciudad</li>
+            <li><i class="bi bi-telephone-fill me-2 text-warning"></i> +123 456 7890</li>
+            <li><i class="bi bi-envelope-fill me-2 text-warning"></i> contacto@latiakahueta.com</li>
+          </ul>
+
+          <!-- Redes Sociales -->
+          <div class="social-icons mt-4">
+            <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-white"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="text-white"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Mapa -->
+        <div class="col-lg-6">
+          <div class="ratio ratio-16x9 shadow-lg">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.023984824392!2d-122.41941548468188!3d37.77492977975944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e4c3e04c121%3A0xc52c0c7cbb3de6c0!2sLa%20T%C3%ADa%20Alkahueta!5e0!3m2!1ses!2sus!4v1700000000000"
+              width="600"
+              height="450"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
 {% endblock %}

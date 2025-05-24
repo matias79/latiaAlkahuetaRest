@@ -3,6 +3,22 @@
 {% block title %}La Tia{% endblock title %}
 
 {% block body %}
-<img src="https://www.colombiahosting.com.co/blog/wp-content/uploads/2021/08/como-crear-pagina-en-construccion.png" height="300px" class="d-block w-100"  alt="Página en construcción">
-<a href="{% url "inicio" %}"><button type="button" class="btn btn-info">VOLVER A INICIO</button></a>
+<section class="py-5 bg-light" id="about">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <!-- Imagen (izquierda en escritorio, arriba en móvil) -->
+        <div class="col-md-6 mb-4 mb-md-0">
+          <img src="https://scontent.fibe2-1.fna.fbcdn.net/v/t39.30808-6/492000825_122124906290663834_3547706746601777271_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG_oiGG3eK-mumeOaTmeDwKp5qTcf6sVT2nmpNx_qxVPUbzsMnFqE9hvlCcyWGHhO4&_nc_ohc=7w2c1HqGb_IQ7kNvwHE310M&_nc_oc=AdkmiCRmRAqw3iK2cFjYyMqX8Yqi3e_CqM_CS5-tkvMEOCVPbe_Dkj88NDKXvIZLvcFecEmPCoiaQAKY9SCglHgJ&_nc_zt=23&_nc_ht=scontent.fibe2-1.fna&_nc_gid=eQYykrvUUcCSD1uemQI7CQ&oh=00_AfKwAvfoZfiJJ8eh4os68hnNlI1icsXCXVItrdTKNpEDog&oe=6837545C" alt="La Tía Alkahueta" class="img-fluid rounded shadow w-100">
+        </div>
+        <!-- Texto -->
+        <div class="col-md-6">
+          <h2 class="mb-3">Sobre La Tía Alkahueta</h2>
+          <p class="lead">En La Tía Alkahueta, la tradición y el sabor casero se sirven en cada plato. Desde nuestras recetas de antaño hasta un ambiente acogedor, somos más que un restaurante: somos una experiencia familiar.</p>
+          <p>Nuestro compromiso es ofrecer comida auténtica, preparada con ingredientes frescos y amor por lo que hacemos. ¡Ven y descubre por qué todos hablan de La Tía!</p>
+          <h4>NO DEJES DE VISITARNOS</h4>
+          <a href="{% url "lista_menu" %}" class="btn btn-primary mt-3">Ver nuestro menú</a>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}

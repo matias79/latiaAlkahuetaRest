@@ -34,7 +34,7 @@ urlpatterns = [
     
     
     
-    path('contacto/', ubicacion_views.latia, name="contacto"),
-    path('latia/', ubicacion_views.contacto, name="latia"),
+    path('contacto/', ubicacion_views.latia, name="latia"),
+    path('latia/', ubicacion_views.contacto, name="contacto"),
     path('ubicacion/', ubicacion_views.ubicacion, name="ubicacion"),
 ]
