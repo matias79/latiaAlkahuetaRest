@@ -31,11 +31,13 @@
                         <td>{{menu.precioMenu}}</td>
                         
                         <td>
+                          
                             <a href="javascrip:void(0)"
                                   class="btn btn-danger btn-md"
-                                  onclick="eliminarFila('/eliminar_almuerzo/{{almuerzo.id}}', 'menu')"
+                                  onclick="eliminarFila('/eliminar_menu/{{menu.idMenu}}', 'menu')"
                                   ><strong>Eliminar</strong></button>
                             </a>
+                        
                             <a href="{% url "menu_modificado" menu.idMenu %}">
                               <button type="button" class="btn btn-warning btn-md"><strong>Editar Menu</strong></button>
                             </a>
